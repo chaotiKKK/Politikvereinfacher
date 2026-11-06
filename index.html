@@ -31,7 +31,7 @@
 :root{
   --ink:        #1c2640;   /* Bundestag-Tinte */
   --ink-soft:   #3a4a63;
-  --muted:      #66778f;
+  --muted:      #56657b;
   --paper:      #faf8f2;   /* offizielles Papier */
   --paper-2:    #f1ede2;
   --line:       #ddd5c4;   /* Rechenlinie */
@@ -268,11 +268,14 @@ td.em{ font-weight:700; }
 .treaty-link-btn{background:none;border:none;cursor:pointer;font-size:.8rem;opacity:0;padding:2px 4px;border-radius:3px;flex-shrink:0;transition:opacity .15s,background .15s;color:var(--ink-soft)}
 .treaty-accordion summary:hover .treaty-link-btn,.treaty-accordion[open] summary .treaty-link-btn{opacity:1}
 .treaty-link-btn:hover{background:var(--paper-2);color:var(--gold)}
+.treaty-link-row{ display:flex; justify-content:flex-end; padding:0 12px; margin:2px 0 4px; }
+.treaty-link-row .treaty-link-btn{ opacity:.75; font-family:var(--mono); font-size:.7rem; }
+.treaty-link-row .treaty-link-btn:hover,.treaty-link-row .treaty-link-btn:focus-visible{ opacity:1; }
 mark.search-hl{background:var(--gold);color:var(--ink);padding:0 1px;border-radius:2px;font-weight:700}
 .treaty-accordion.search-hit{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
 .treaty-actions{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
 @media print{
-  .treaty-timeline,.tl-legend,.treaty-link-btn,#vertraege-search,.pills,.treaty-actions{display:none !important}
+  .treaty-timeline,.tl-legend,.treaty-link-btn,.treaty-link-row,#vertraege-search,.pills,.treaty-actions{display:none !important}
   .treaty-accordion{break-inside:avoid;page-break-inside:avoid}
 }
 
@@ -560,7 +563,7 @@ html[data-font="lesen"] body{ font-family:Verdana, Geneva, "DejaVu Sans", sans-s
 /* ---------- AAA Quick Wins: Fokus, Skip-Link, Zahlentypografie, Suche ---------- */
 .skip-link{ position:absolute; left:-9999px; top:0; background:var(--ink); color:var(--paper); padding:8px 14px; z-index:200; font-family:var(--mono); font-size:.8rem; }
 .skip-link:focus{ left:8px; top:8px; }
-:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
+:focus-visible{ outline:3px solid var(--ink); outline-offset:2px; }
 td, .kpi .val, .dc-val, .chart-note{ font-variant-numeric:tabular-nums; }
 .dc-search{ font:inherit; padding:3px 8px; border:1px solid var(--line); border-radius:4px; background:var(--paper); color:var(--ink); max-width:11em; }
 .toc a.spy-on{ color:var(--red); border-bottom-color:var(--red); }
@@ -691,15 +694,19 @@ html[data-theme="solarized-dark"] .pills .pill{ background:var(--paper-2); }
 }
 .utl-dot{
   scroll-snap-align:center; flex:0 0 auto;
-  width:13px; height:13px; margin-top:8px;
-  border-radius:50%; border:2px solid var(--muted);
-  background:var(--paper); cursor:pointer; padding:0;
-  transition:transform .12s ease, border-color .12s ease, background .12s ease;
+  width:24px; height:24px; margin-top:2px;
+  border:0; background:transparent; cursor:pointer; padding:0;
+  display:inline-flex; align-items:center; justify-content:center;
   position:relative;
 }
-.utl-dot:hover{ transform:scale(1.35); border-color:var(--red); }
-.utl-dot.on{ background:var(--red); border-color:var(--red); transform:scale(1.25); }
-.utl-dot.focus:not(.on){ border-color:var(--gold); }
+.utl-dot::before{
+  content:""; width:13px; height:13px; border-radius:50%;
+  border:2px solid var(--muted); background:var(--paper);
+  transition:transform .12s ease, border-color .12s ease, background .12s ease;
+}
+.utl-dot:hover::before{ transform:scale(1.35); border-color:var(--red); }
+.utl-dot.on::before{ background:var(--red); border-color:var(--red); transform:scale(1.25); }
+.utl-dot.focus:not(.on)::before{ border-color:var(--gold); }
 .utl-dot.decade::after{
   content:attr(data-year); position:absolute; top:15px; left:50%; transform:translateX(-50%);
   font-family:var(--mono); font-size:.58rem; color:var(--muted);
@@ -747,7 +754,7 @@ bilanz-chart{ display:block; }
 .start-help h3{ font-family:var(--serif); font-weight:600; font-size:1.02rem; margin-bottom:6px; color:var(--ink); }
 .start-help p{ font-size:.88rem; line-height:1.55; color:var(--ink-soft); }
 .legend{ list-style:none; display:grid; gap:4px; margin:2px 0 8px; font-size:.86rem; color:var(--ink-soft); }
-.legend .sw{ display:inline-block; width:11px; height:11px; margin-right:7px; }
+.legend .sw{ display:inline-block; width:1.1em; margin-right:6px; font-size:.95em; text-align:center; }
 .gloss{ margin-top:16px; border-top:1px dashed var(--line); padding-top:10px; }
 .gloss summary{ cursor:pointer; font-family:var(--mono); font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); padding:4px 0; }
 .gloss summary:hover{ color:var(--red); }
@@ -769,6 +776,14 @@ bilanz-chart{ display:block; }
   .gloss summary{ padding:8px 0; }
   .gloss dl{ grid-template-columns:1fr; gap:0; }
   .gloss dd{ margin:2px 0 10px; }
+  .tl{ overflow-x:auto; padding-bottom:10px; }
+  .tl .t{ min-width:104px; }
+}
+@media (max-width:420px){
+  .card h3{ display:block; }
+  .permalink{ display:inline-block; margin-left:4px; }
+  .sim .sim-row{ flex-wrap:wrap; row-gap:4px; }
+  .sim .sim-row strong{ margin-left:auto; }
 }
 @media print{ .start{ break-inside:avoid; } }
 </style>
@@ -891,9 +906,9 @@ bilanz-chart{ display:block; }
       <div>
         <h3>So liest du die Seite</h3>
         <ul class="legend">
-          <li><span class="sw" style="background:var(--red)"></span><b>Rot</b> = Ausgaben, Defizit, Kipppunkt</li>
-          <li><span class="sw" style="background:var(--green)"></span><b>Grün</b> = Einnahmen, Entlastung</li>
-          <li><span class="sw" style="background:var(--gold)"></span><b>Gold</b> = Vergleich, Inflation, Prognose</li>
+          <li><span class="sw" style="color:var(--red)" aria-hidden="true">&#9632;</span><b>Rot (Quadrat)</b> = Ausgaben, Defizit, Kipppunkt</li>
+          <li><span class="sw" style="color:var(--green)" aria-hidden="true">&#9650;</span><b>Grün (Dreieck)</b> = Einnahmen, Entlastung</li>
+          <li><span class="sw" style="color:var(--gold)" aria-hidden="true">&#9670;</span><b>Gold (Raute)</b> = Vergleich, Inflation, Prognose</li>
         </ul>
         <p>Jede Karte beginnt mit einem Satz in Alltagssprache, die Quelle steht direkt darunter. Alle Diagramme sind selbst gezeichnet; die Seite lädt nichts von außen nach.</p>
       </div>
@@ -2789,7 +2804,7 @@ function initParteienProgramme(){
       const na = c==="nicht-addressiert";
       const bg = ppColor(c);
       const lab = na ? "—" : (tp.l[c]||c);
-      const col = na ? "var(--muted)" : "var(--ink)";
+      const col = na ? "#3a4a63" : "#1c2640";
       m += "<td style='background:"+bg+";color:"+col+";text-align:left' title='"+tp.t+" · "+PL[i]+" · "+(na?"nicht adressiert":tp.l[c])+"'>"+lab+"</td>";
     });
     m += "</tr>";
@@ -4433,11 +4448,12 @@ function initVertraegeRU() {
       acc.id = 'vertrag-' + year + '-' + slugify(title);
     }
     const summary = acc.querySelector('summary');
-    if (summary && !summary.querySelector('.treaty-link-btn')) {
+    if (summary && !acc.querySelector('.treaty-link-btn')) {
       const btn = document.createElement('button');
       btn.className = 'treaty-link-btn';
       btn.type = 'button';
       btn.title = 'Direktlink kopieren';
+      btn.setAttribute('aria-label', 'Direktlink zu diesem Vertrag kopieren');
       btn.textContent = '🔗';
       btn.addEventListener('click', e => {
         e.preventDefault();
@@ -4447,7 +4463,10 @@ function initVertraegeRU() {
           .then(() => showShareToast('Direktlink kopiert'))
           .catch(() => { try { window.prompt('Direktlink:', url); } catch (err) {} });
       });
-      summary.appendChild(btn);
+      const row = document.createElement('div');
+      row.className = 'treaty-link-row';
+      row.appendChild(btn);
+      acc.insertBefore(row, summary.nextSibling);
     }
   });
   function openFromHash() {
@@ -5026,6 +5045,45 @@ if ('serviceWorker' in navigator) {
   function openGlossar(){ const g=document.getElementById('glossar'); if(g && location.hash==='#glossar'){ g.open=true; } }
   window.addEventListener('hashchange', openGlossar);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', openGlossar); else openGlossar();
+
+  /* Akkordeons melden ihren Zustand explizit (auch fuer Screenreader) */
+  function syncDetailsA11y(){
+    document.querySelectorAll('details').forEach(d => {
+      const sm = d.querySelector(':scope > summary');
+      if (!sm) return;
+      sm.setAttribute('aria-expanded', d.open ? 'true' : 'false');
+      if (!d.dataset.a11yBound) {
+        d.dataset.a11yBound = '1';
+        d.addEventListener('toggle', () => sm.setAttribute('aria-expanded', d.open ? 'true' : 'false'));
+      }
+    });
+  }
+
+  /* Horizontal scrollbare Tabellen/Zeitstrahlen per Tastatur erreichbar machen */
+  function markScrollableRegions(){
+    document.querySelectorAll('.table-wrap, .tl').forEach(el => {
+      const scrollable = el.scrollWidth > el.clientWidth + 1;
+      if (!scrollable) {
+        if (el.dataset.a11yScroll === '1') {
+          el.removeAttribute('tabindex'); el.removeAttribute('role'); el.removeAttribute('aria-label');
+          delete el.dataset.a11yScroll;
+        }
+        return;
+      }
+      if (el.dataset.a11yScroll === '1') return;
+      el.dataset.a11yScroll = '1';
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('role', 'region');
+      const head = el.closest('.card') ? el.closest('.card').querySelector('h3, h2') : null;
+      const name = head ? head.textContent.replace(/\s+/g, ' ').trim().slice(0, 70) : 'Tabelle';
+      el.setAttribute('aria-label', (el.classList.contains('tl') ? 'Zeitstrahl: ' : 'Tabelle: ') + name + ' — mit den Pfeiltasten horizontal scrollbar');
+    });
+  }
+
+  function bootA11y(){ syncDetailsA11y(); markScrollableRegions(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootA11y); else bootA11y();
+  window.addEventListener('load', () => { syncDetailsA11y(); markScrollableRegions(); });
+  let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(markScrollableRegions, 200); });
 })();
 /* Druck: alle Akkordeons aufklappen, danach Zustand zurückgeben */
 window.addEventListener('beforeprint', () => { document.querySelectorAll('details:not([open])').forEach(d => { d.dataset.printOpened='1'; d.open=true; }); });
