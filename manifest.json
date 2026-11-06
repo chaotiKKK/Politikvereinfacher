@@ -1,0 +1,28 @@
+{
+  "name": "Die Bilanz der Republik",
+  "short_name": "Bilanz der Republik",
+  "description": "Haushaltsbuch über Ausgaben, Steuern, Schulden, Soziales und Energie Deutschlands 2014–2026",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#faf8f2",
+  "theme_color": "#1c2640",
+  "orientation": "any",
+  "scope": "./",
+  "lang": "de",
+  "categories": ["finance", "government", "data", "reference"],
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "prefer_related_applications": false
+}

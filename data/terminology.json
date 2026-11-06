@@ -1,0 +1,115 @@
+{
+  "version": "2.2.0",
+  "lastUpdated": "2026-09-11T10:00:00Z",
+  "categories": {
+    "criminal_statistics": {
+      "label": "Strafstatistik",
+      "neutral": [
+        "Tatverdächtige",
+        "Straftat",
+        "Gewaltkriminalität",
+        "Eigentumskriminalität",
+        "Straftaten",
+        "Polizeiliche Kriminalstatistik",
+        "Aufklärung",
+        "Verdachtslage",
+        "Straftatbestand"
+      ],
+      "source": [
+        "Kriminelle Ausländer",
+        "Tatverdächtige ausländischer Abstammung",
+        "Gewalttaten durch Asylbewerber",
+        "Polizeiliche Kriminalstatistik (PKS)",
+        "Straftaten pro 100.000 Einwohner"
+      ],
+      "loaded": [
+        "Kriminelle Ausländer",
+        "Gefährder",
+        "Integrationsversagen",
+        "Migrationshintergrund als Risikofaktor",
+        "Asylbewerber-Kriminalität",
+        "Parallelgesellschaften",
+        "Geburtsort-Kriminalität",
+        "Ausländerkriminalität"
+      ],
+      "corrections": [
+        {"loaded": "Kriminelle Ausländer", "correction": "Tatverdächtige ausländischer Abstammung", "note": "PKS unterscheidet nicht nach Staatsangehörigkeit, sondern nach 'mit Migrationshintergrund'"},
+        {"loaded": "Gefährder", "correction": "Personen mit hohem Gefährdungspotenzial", "note": "Begriff ist nicht legal definiert, subjektiv"},
+        {"loaded": "Integrationsversagen", "correction": "Herausforderungen bei der Integration", "note": "Falsch: Integration schlägt fehl → richtig: Systemische Hürden"}
+      ]
+    },
+    "migration": {
+      "label": "Migration",
+      "neutral": [
+        "Zuwanderung",
+        "Migrationshintergrund",
+        "Aufenthaltsstatus",
+        "Staatsangehörigkeit",
+        "Migrationsforschung",
+        "Flucht und Migration"
+      ],
+      "source": [
+        "Migrationshintergrund",
+        "Zuwanderer",
+        "Menschen mit Migrationshintergrund",
+        "Geflüchtete",
+        "Asylsuchende"
+      ],
+      "loaded": [
+        "Masseneinwanderung",
+        "Überfremdung",
+        "Leute ohne Migrationshintergrund",
+        "Kriminelle Ausländer",
+        "Geburtsland-Kriminalität",
+        "Invasionsströme",
+        "Feindliche Übernahme"
+      ],
+      "corrections": [
+        {"loaded": "Masseneinwanderung", "correction": "Zuwanderung", "note": "Subjektive Wertung → objektive Zahl"},
+        {"loaded": "Überfremdung", "correction": "Zuwanderung", "note": "Veraltete, diskriminierende Terminologie"},
+        {"loaded": "Leute ohne Migrationshintergrund", "correction": "Personen ohne Migrationshintergrund", "note": "Abwertende Umgangssprache"}
+      ]
+    },
+    "economy": {
+      "label": "Wirtschaft & Haushalt",
+      "neutral": [
+        "Haushaltsdefizit",
+        "Staatsschuld",
+        "Einnahmen",
+        "Ausgaben",
+        "Verschuldungsquote",
+        "Jahreshaushaltsplan",
+        "Steuereinnahmen",
+        "Sozialausgaben"
+      ],
+      "source": [
+        "Haushaltsdefizit",
+        "Staatsschuld",
+        "Jahreshaushaltsplan",
+        "Verschuldungsquote in Prozent des BIP",
+        "Einnahmenüberschuss",
+        "Eckwerte des Haushaltsplans"
+      ],
+      "loaded": [
+        "Schuldenbremse",
+        "Haushaltsnotstand",
+        "Finanzkrise",
+        "Schuldenfalle",
+        "Sparpolitik",
+        "Euro-Rettung",
+        "Haushaltsdisziplin"
+      ],
+      "corrections": [
+        {"loaded": "Schuldenbremse", "correction": "Schuldenbremse (Verfassungsmäßig)", "note": "Begriff ist verfassungsrechtlich definiert, nicht negativ"},
+        {"loaded": "Haushaltsnotstand", "correction": "Haushaltsnotlage", "note": "Rechtsbegriff: §45 BHO, objektiv definiert"},
+        {"loaded": "Schuldenfalle", "correction": "Verschuldung", "note": "Wertende Rahmung → objektive Verschuldungsquote"}
+      ]
+    }
+  },
+  "metadata": {
+    "totalTerms": 48,
+    "lastReview": "2026-09-01",
+    "reviewFrequency": "monthly",
+    "sources": ["Destatis", "BKA", "BMF", "Eurostat"]
+  }
+}
