@@ -28,6 +28,7 @@ python3 -m http.server 8000
   XI USA-Kriege · XII SU/RU-Kriege · XIII Parteiprogramme · XIV Staat & Politik ·
   XV Staatsaufbau · Historie 1981–2026 (46 Jahre) · Verträge Deutschland–Russland
   (15 Abkommen, 2+4-Vertrag mit allen zehn Artikeln)
+- **Einstieg „In 60 Sekunden“** — vier Kernzahlen in Alltagssprache mit Beleg-Sprungmarken, Lese-Legende (Rot/Grün/Gold), Abschnitt „Was die Zahlen nicht sind“ und Glossar mit 10 Fachbegriffen
 - **60 interaktive SVG-Charts**, selbst gerendert, ohne Fremdbibliothek
 - **Rechner:** Steuerrechner (Brutto/Netto), Inflationsrechner, EU-Vergleich (27 Staaten),
   Sektorszenario-Engine

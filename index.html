@@ -8,6 +8,15 @@
 <title>Die Bilanz der Republik · Deutschland 2014–2026</title>
 <meta name="description" content="Die Bilanz der Republik — Haushaltsbuch über Ausgaben, Steuern, Schulden, Soziales und Energie. Alle Zahlen mit Quellen, Stand 2026." />
 <meta name="theme-color" content="#faf8f2" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content="Die Bilanz der Republik" />
+<meta property="og:title" content="Die Bilanz der Republik · Deutschland 2014–2026" />
+<meta property="og:description" content="Das Haushaltsbuch der Bundesrepublik in einfacher Sprache: vier Kernzahlen zum Einstieg, 60 selbst gezeichnete Diagramme, Rechner und Quellen zu jeder Aussage." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Die Bilanz der Republik · Deutschland 2014–2026" />
+<meta name="twitter:description" content="Haushaltsbuch der Bundesrepublik in einfacher Sprache — vier Kernzahlen, 60 Diagramme, Quellen zu jeder Aussage." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c2640'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23b9953f' font-family='Georgia'%3EB%3C/text%3E%3C/svg%3E" />
 <link rel="manifest" href="./manifest.json" />
 <link rel="apple-touch-icon" href="./icons/icon.svg" />
@@ -723,6 +732,45 @@ dialog#dlg-example form{ margin-top:14px; text-align:right; }
 
 /* Web Component <bilanz-chart> (Migrations-Demo, kein Shadow DOM) */
 bilanz-chart{ display:block; }
+/* ---------- Einstieg „In 60 Sekunden“ + Glossar (v2.3.1) ---------- */
+.start{ margin:26px 0 8px; padding:22px 24px; background:var(--paper-2); border:1px solid var(--line); border-left:5px solid var(--gold); }
+.start-head h2{ font-family:var(--serif); font-weight:600; font-size:1.7rem; color:var(--ink); margin:4px 0 6px; }
+.start-lede{ max-width:70ch; color:var(--ink-soft); line-height:1.55; font-size:.98rem; }
+.facts{ list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin:16px 0 4px; }
+.facts li{ background:var(--paper); border:1px solid var(--line); padding:14px 16px; display:flex; flex-direction:column; gap:6px; }
+.facts .fnum{ font-family:var(--serif); font-size:1.55rem; font-weight:600; color:var(--ink); line-height:1.05; }
+.facts .fnum small{ font-family:var(--mono); font-size:.68rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; }
+.facts p{ font-size:.93rem; line-height:1.5; color:var(--ink-soft); }
+.facts .flink{ margin-top:auto; font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--red); text-decoration:none; border-bottom:1px solid transparent; align-self:flex-start; }
+.facts .flink:hover,.facts .flink:focus-visible{ border-bottom-color:var(--red); }
+.start-help{ display:grid; grid-template-columns:1fr 1fr; gap:18px 30px; margin-top:18px; padding-top:14px; border-top:1px solid var(--line); }
+.start-help h3{ font-family:var(--serif); font-weight:600; font-size:1.02rem; margin-bottom:6px; color:var(--ink); }
+.start-help p{ font-size:.88rem; line-height:1.55; color:var(--ink-soft); }
+.legend{ list-style:none; display:grid; gap:4px; margin:2px 0 8px; font-size:.86rem; color:var(--ink-soft); }
+.legend .sw{ display:inline-block; width:11px; height:11px; margin-right:7px; }
+.gloss{ margin-top:16px; border-top:1px dashed var(--line); padding-top:10px; }
+.gloss summary{ cursor:pointer; font-family:var(--mono); font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); padding:4px 0; }
+.gloss summary:hover{ color:var(--red); }
+.gloss dl{ display:grid; grid-template-columns:max-content 1fr; gap:8px 20px; margin-top:12px; font-size:.9rem; line-height:1.5; }
+.gloss dt{ font-weight:700; color:var(--ink); }
+.gloss dd{ color:var(--ink-soft); }
+.noscript{ margin:16px 0 0; padding:12px 16px; background:#fff4d6; border:1px solid var(--gold); color:#1c2640; font-size:.9rem; line-height:1.5; }
+.display-controls .dc-group{ flex-wrap:wrap; }
+.display-controls .dc-search{ min-width:7em; max-width:100%; }
+@media (max-width:760px){
+  .toc{ position:static; margin:0; padding:8px 0; gap:6px 14px; box-shadow:none; }
+  .toc a{ font-size:.68rem; }
+  .display-controls,.display-controls .dc-group{ max-width:100%; }
+  .phase-tag{ flex-wrap:wrap; }
+  .phase-tag .cap{ margin-left:0; }
+  .start{ padding:18px 16px; margin-top:18px; }
+  .start-head h2{ font-size:1.45rem; }
+  .facts{ grid-template-columns:1fr; }
+  .gloss summary{ padding:8px 0; }
+  .gloss dl{ grid-template-columns:1fr; gap:0; }
+  .gloss dd{ margin:2px 0 10px; }
+}
+@media print{ .start{ break-inside:avoid; } }
 </style>
 <script type="speculationrules">
 {
@@ -736,6 +784,10 @@ bilanz-chart{ display:block; }
 
 <div class="wrap">
 <a class="skip-link print-hide" href="#sec-i">Zum Inhalt springen</a>
+
+<noscript>
+  <p class="noscript"><strong>Hinweis:</strong> Diese Seite rechnet alles direkt im Browser. Ohne JavaScript bleiben Texte, Tabellen und Quellen lesbar — Diagramme und Rechner erscheinen nicht. <a href="#sec-ii">Zu den Tabellen</a></p>
+</noscript>
 
   <!-- ======== HEADER ======== -->
   <header>
@@ -765,6 +817,7 @@ bilanz-chart{ display:block; }
     <a href="#sec-xiii">XIII Programme</a>
     <a href="#sec-staat-politik">XIV Staat</a>
     <a href="#sec-staatsaufbau">XV Aufbau</a>
+    <a href="#glossar" class="print-hide">Begriffe</a>
     <span class="spacer"></span>
     <button class="btn print-hide" id="btnPrint" onclick="window.print()">PDF</button>
     <button class="btn print-hide" id="btnTheme" onclick="toggleTheme()">Dunkel</button>
@@ -804,6 +857,68 @@ bilanz-chart{ display:block; }
     </div>
     <button class="btn print-hide" id="btnTop" aria-label="Nach oben scrollen">↑</button>
   </nav>
+
+  <!-- ======== EINSTIEG: IN 60 SEKUNDEN ======== -->
+  <section class="start" id="start" aria-labelledby="start-h">
+    <div class="start-head">
+      <div class="eyebrow" style="margin:0;">Einstieg ohne Vorkenntnisse</div>
+      <h2 id="start-h">In 60 Sekunden</h2>
+      <p class="start-lede">Vier Zahlen, um die der Haushaltsstreit kreist — jede mit Sprungmarke zur Belegstelle. Alles Weitere auf dieser Seite ist Ausbau, keine Voraussetzung.</p>
+    </div>
+    <ol class="facts">
+      <li>
+        <span class="fnum">502,6 <small>Mrd.&thinsp;€</small></span>
+        <p><strong>So viel gibt der Bund 2025 aus.</strong> 2014 waren es 295&thinsp;Mrd.&thinsp;€ — ein Plus von 70&thinsp;%. Die Steuereinnahmen wuchsen im selben Zeitraum nur um 40&thinsp;%.</p>
+        <a class="flink" href="#sec-ii">Beleg: Kapitel II</a>
+      </li>
+      <li>
+        <span class="fnum">190,3 <small>Mrd.&thinsp;€</small></span>
+        <p><strong>So viel geht 2025 an Arbeit und Soziales</strong> — der größte Einzelposten. Rechnet man alle Sozialleistungen des Bundes zusammen, ist es fast die Hälfte des Haushalts.</p>
+        <a class="flink" href="#sec-ii">Beleg: Kapitel II</a>
+      </li>
+      <li>
+        <span class="fnum">2,84 <small>Bio.&thinsp;€</small></span>
+        <p><strong>So hoch ist der Schuldenstand</strong> — 63,5&thinsp;% der jährlichen Wirtschaftsleistung. Die Zinsen dafür stiegen von rund 4&thinsp;Mrd.&thinsp;€ (2021) auf rund 40&thinsp;Mrd.&thinsp;€ (2025).</p>
+        <a class="flink" href="#sec-iii">Beleg: Kapitel III</a>
+      </li>
+      <li>
+        <span class="fnum">39 <small>von 100</small></span>
+        <p><strong>So viele Menschen ab 65 kommen auf 100 im Erwerbsalter.</strong> 2070 sollen es rund 51 sein — deshalb bleibt der Sozialetat der schwierigste Posten.</p>
+        <a class="flink" href="#sec-ii">Beleg: Kapitel II</a>
+      </li>
+    </ol>
+    <div class="start-help">
+      <div>
+        <h3>So liest du die Seite</h3>
+        <ul class="legend">
+          <li><span class="sw" style="background:var(--red)"></span><b>Rot</b> = Ausgaben, Defizit, Kipppunkt</li>
+          <li><span class="sw" style="background:var(--green)"></span><b>Grün</b> = Einnahmen, Entlastung</li>
+          <li><span class="sw" style="background:var(--gold)"></span><b>Gold</b> = Vergleich, Inflation, Prognose</li>
+        </ul>
+        <p>Jede Karte beginnt mit einem Satz in Alltagssprache, die Quelle steht direkt darunter. Alle Diagramme sind selbst gezeichnet; die Seite lädt nichts von außen nach.</p>
+      </div>
+      <div>
+        <h3>Was die Zahlen nicht sind</h3>
+        <p>Die Seite beschreibt überwiegend den <b>Bund</b> — nicht den Gesamtstaat aus Bund, Ländern, Kommunen und Sozialversicherung. „Nominal“ heißt: nicht um die Inflation bereinigt. Prognosen sind als solche markiert.</p>
+        <p><a href="#glossar">Fachbegriffe in einfacher Sprache ↓</a></p>
+      </div>
+    </div>
+    <details class="gloss" id="glossar">
+      <summary>Fachbegriffe in einfacher Sprache (10)</summary>
+      <dl>
+        <dt>BIP</dt><dd>Alles, was in einem Jahr in Deutschland an Waren und Dienstleistungen produziert wird. Es dient als Maßstab („in Prozent des BIP“), damit Zahlen über die Jahre vergleichbar bleiben.</dd>
+        <dt>Nominal / real</dt><dd>Nominal heißt: so, wie es auf dem Konto steht. Real heißt: um die Inflation bereinigt, also in heutiger Kaufkraft. 70&thinsp;% mehr nominal sind real deutlich weniger.</dd>
+        <dt>Inflation</dt><dd>Wie schnell alles insgesamt teurer wird. Bei 37&thinsp;% Inflation seit 2014 bekommt man für denselben Betrag heute rund ein Viertel weniger.</dd>
+        <dt>Schuldenstand</dt><dd>Die Summe aller Kredite, die der Staat noch zurückzahlen muss — nicht das Defizit eines einzelnen Jahres.</dd>
+        <dt>Schuldenquote</dt><dd>Schuldenstand geteilt durch das BIP. Sie kann sinken, obwohl neue Schulden dazukommen, wenn die Wirtschaft schneller wächst.</dd>
+        <dt>Defizit</dt><dd>Der Betrag, um den ein Jahr mehr ausgegeben als eingenommen wurde. Jedes Defizit erhöht den Schuldenstand.</dd>
+        <dt>Zinslast</dt><dd>Was der Staat pro Jahr nur für Zinsen zahlt — Geld, das nicht in Schulen, Rente oder Verteidigung fließt.</dd>
+        <dt>Sozialausgaben</dt><dd>Leistungen für Rente, Gesundheit, Pflege, Arbeitslosigkeit und Familie. Der größte Einzelposten des Bundeshaushalts.</dd>
+        <dt>Schuldenbremse</dt><dd>Verfassungsregel (Art.&nbsp;109 GG): Der Bund darf sich normalerweise nur bis 0,35&thinsp;% des BIP neu verschulden; in Notlagen ist eine Ausnahme mit Tilgungsplan möglich.</dd>
+        <dt>Netto-Steuerzahler</dt><dd>Wer mehr Steuern zahlt, als er an staatlichen Leistungen zurückbekommt. Laut dieser Seite sind das rund 30&thinsp;% der Bevölkerung.</dd>
+      </dl>
+    </details>
+  </section>
 
   <!-- ======== HERO: DER KIPPHEBEL ======== -->
   <section class="hero">
@@ -2134,7 +2249,7 @@ bilanz-chart{ display:block; }
       droht der Haushalt, „an die Wand zu fahren“.
     </p>
     <p style="margin-top:14px;"><strong>Quellen:</strong> Bundeshaushaltsgesetze 2024/2025, Bundesbank, IW-Studie (2026), IfW Kiel, Statista, Bundestagsdrucksachen, Bundestag „in Zahlen", Bundeswahlleiterin (Berufsgruppen), Mediendienst Integration (2025), Ministerien-Bios, UN-Resolutionen (UNSCR), CRS-Reports zu US-Militäreinsätzen. Alle Angaben ohne Gewähr, Stand Anfang 2026. – Chart-Daten illustrativ/gerundet.</p>
-    <p style="margin-top:10px;"><strong>Changelog:</strong> 09/2026 — Sektion VII neu: Kernkraft weltweit (PRIS/WNA), Biblis⇄KI-Rechenzentren inkl. Szenario-Rechner, Stromerzeugung &amp; Konzerne nach Staat (EIA 2024), Gas-Kaskade (Notfallplan), Quellenregister; Sektion XIII neu: Parteiprogramme-Vergleich (BTW 2025, 18&times;7-Matrix); I·B neu: Lastverteilung im Detail (Destatis 2022) + Staatsangehörigkeit/Fiskalbilanz; Display-System: 6 Themes, Zoom, Textgröße, Schriftart (persistiert); Selftest inkl. Content-Checks + Unit-Tests (51 Charts). 101 %: A11y (Skip-Link, ARIA, Fokus), Print-Finish, CSV-Export, Karten-Suche, Scroll-Spy, Permalinks, Tabellenfilter, RZ-Presets + CO₂-Rechner, CSP, Settings-Ex/Import, CI-Checks. Update-Rhythmus s. Quellenregister.</p>    <p style="margin-top:10px;"><strong>Einstellungen:</strong> <button class="btn print-hide" id="btnSettingsExport" type="button">Sichern (JSON)</button> <label class="btn print-hide" for="settingsImport" style="cursor:pointer;">Laden</label><input type="file" id="settingsImport" accept="application/json,.json" class="print-hide" style="display:none"></p>
+    <p style="margin-top:10px;"><strong>Changelog:</strong> 09/2026 — Sektion VII neu: Kernkraft weltweit (PRIS/WNA), Biblis⇄KI-Rechenzentren inkl. Szenario-Rechner, Stromerzeugung &amp; Konzerne nach Staat (EIA 2024), Gas-Kaskade (Notfallplan), Quellenregister; Sektion XIII neu: Parteiprogramme-Vergleich (BTW 2025, 18&times;7-Matrix); I·B neu: Lastverteilung im Detail (Destatis 2022) + Staatsangehörigkeit/Fiskalbilanz; Display-System: 6 Themes, Zoom, Textgröße, Schriftart (persistiert); Selftest inkl. Content-Checks + Unit-Tests (51 Charts). 101 %: A11y (Skip-Link, ARIA, Fokus), Print-Finish, CSV-Export, Karten-Suche, Scroll-Spy, Permalinks, Tabellenfilter, RZ-Presets + CO₂-Rechner, CSP, Settings-Ex/Import, CI-Checks. 11/2026: Einstieg „In 60 Sekunden“ mit vier Kernzahlen, Lese-Legende und Glossar (10 Begriffe), OpenGraph-/Twitter-Angaben, noscript-Hinweis, Mobil-Fixes, Druck klappt alle Akkordeons auf. Update-Rhythmus s. Quellenregister.</p>    <p style="margin-top:10px;"><strong>Einstellungen:</strong> <button class="btn print-hide" id="btnSettingsExport" type="button">Sichern (JSON)</button> <label class="btn print-hide" for="settingsImport" style="cursor:pointer;">Laden</label><input type="file" id="settingsImport" accept="application/json,.json" class="print-hide" style="display:none"></p>
   </div>
 
 </div><!--/wrap-->
@@ -3224,6 +3339,10 @@ if (!("IntersectionObserver" in window)) {
   chk("permalinks gesetzt", q(".permalink")>10);
   chk("settings-transfer vorhanden", !!document.getElementById("btnSettingsExport") && !!document.getElementById("settingsImport"));
   chk("csp-meta vorhanden", !!document.querySelector('meta[http-equiv="Content-Security-Policy"]'));
+  chk("einstieg 60 sekunden", !!document.getElementById("start") && q(".facts li")===4);
+  chk("glossar 10 begriffe", q("#glossar dt")===10 && q("#glossar dd")===10);
+  chk("keine externen ressourcen", q('link[href^="http"],script[src^="http"],img[src^="http"]')===0);
+  chk("meta description", (document.querySelector('meta[name="description"]')?.content || "").length > 60);
   lines.push("Content: "+(cc.some(c=>c.indexOf("FAIL")===0) ? cc.filter(c=>c.indexOf("FAIL")===0).join("; ") : "OK ("+cc.length+" Checks)"));
   const unitFailures = [];
   let unitCount = 0;
@@ -4901,6 +5020,16 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+/* Glossar: Sprungmarke klappt das Akkordeon auf */
+(function(){
+  function openGlossar(){ const g=document.getElementById('glossar'); if(g && location.hash==='#glossar'){ g.open=true; } }
+  window.addEventListener('hashchange', openGlossar);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', openGlossar); else openGlossar();
+})();
+/* Druck: alle Akkordeons aufklappen, danach Zustand zurückgeben */
+window.addEventListener('beforeprint', () => { document.querySelectorAll('details:not([open])').forEach(d => { d.dataset.printOpened='1'; d.open=true; }); });
+window.addEventListener('afterprint', () => { document.querySelectorAll('details[data-print-opened]').forEach(d => { delete d.dataset.printOpened; d.open=false; }); });
 </script>
 
 </body>
